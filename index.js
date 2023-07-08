@@ -5,7 +5,6 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose"); 
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
 mongoose.set('strictQuery', false);
 app.set('view engine', 'ejs');
@@ -124,10 +123,7 @@ app.get("/about", function(req, res){
   res.render("about");
 });
 
-// connectDB().then(() => {
-//     app.listen(PORT, () => {
-//     })
-// })
-app.listen(PORT, function() {
-    console.log("Server started on port 3000");
+const PORT = process.env.PORT
+app.listen(PORT, () => {
+    console.log("Server started on port");
   });
